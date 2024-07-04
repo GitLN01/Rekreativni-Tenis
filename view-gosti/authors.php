@@ -59,5 +59,5 @@ require_once './partials/navigacija.php';
 
 
 <?php
-require_once './partials/podnozije.php';
+require_once './partials/footer.php';
 ?>

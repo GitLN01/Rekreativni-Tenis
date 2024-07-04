@@ -99,5 +99,5 @@ if (time() - $vremeActivneSesije <  10 * 60) {
 }
 
 $_SESSION['last_active1'] = time();    // update zadnje aktivnosti na sesiji
-require_once './partials/podnozije.php';
+require_once './partials/footer.php';
 ?>

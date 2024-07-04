@@ -137,5 +137,5 @@ $mecevi = $meceviDAO->getAllMecevi();
         </script>
 
         <?php
-        require_once './partials/podnozije.php';
+        require_once './partials/footer.php';
         ?>

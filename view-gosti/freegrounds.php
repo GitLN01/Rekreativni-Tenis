@@ -45,5 +45,5 @@ $tereni = $terenDAO->getAllTereni()
    <!-- <a href="grounds.php"><img src="./images/back.png" class="m-auto d-block" style="height: 30px;" alt=""></a> -->
 </div>
 <?php
-require_once './partials/podnozije.php';
+require_once './partials/footer.php';
 ?>

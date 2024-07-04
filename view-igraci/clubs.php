@@ -99,5 +99,5 @@ $klubovi = $klubDAO->getAllSportskiKlubovi();
         </script>
 
         <?php
-        require_once './partials/podnozje.php';
+        require_once './partials/footer.php';
         ?>

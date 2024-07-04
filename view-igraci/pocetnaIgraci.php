@@ -88,6 +88,6 @@ if (!isset($_SESSION['loginKorisnik'])) {
 
 $_SESSION['last_active'] = time();   
 
-require_once './partials/podnozje.php';
+require_once './partials/footer.php';
 
 ?>

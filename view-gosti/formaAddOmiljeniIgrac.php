@@ -64,5 +64,5 @@ $igraci = $korisnikDAO->getAllIgraci();
 // }
 
 //$_SESSION['last_active'] = time();    // update zadnje aktivnosti na sesiji
-require_once './partials/podnozije.php';
+require_once './partials/footer.php';
 ?>

@@ -46,5 +46,5 @@ unset($_SESSION['igrac']);
 <script src="./js/jquery-3.6.0.js"></script>
 <script src="./js/jquery.validate.min.js"></script>
 <?php
-require_once './partials/podnozije.php';
+require_once './partials/footer.php';
 ?>

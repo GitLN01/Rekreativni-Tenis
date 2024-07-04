@@ -162,5 +162,5 @@ if (time() - $sessija <  10 * 60) {
 }
 
 $_SESSION['last_active'] = time();
-require_once './partials/podnozje.php';
+require_once './partials/footer.php';
     ?>

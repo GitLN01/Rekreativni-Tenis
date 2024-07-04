@@ -66,5 +66,5 @@ $igraci = $korisnikDAO->getAllIgraciSort();
    
 
         <?php
-        require_once './partials/podnozije.php';
+        require_once './partials/footer.php';
         ?>

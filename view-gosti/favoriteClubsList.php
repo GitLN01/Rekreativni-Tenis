@@ -66,5 +66,5 @@ $klubovi = $_SESSION['listaKlubovi'];
 
     <?php
 
-    require_once './partials/podnozije.php';
+    require_once './partials/footer.php';
     ?>
