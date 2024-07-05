@@ -63,8 +63,8 @@ $igraci = $korisnikDAO->getAllIgraciSort();
         
             
         </div>
-   
 
+        
         <?php
         require_once './partials/footer.php';
         ?>
