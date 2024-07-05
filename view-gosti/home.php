@@ -4,7 +4,7 @@ require_once '../model/Korisnik.php';
 ?>
 
 <div class="container">
-    <div class="row" style="height: 68px; background-color:#6386a3">
+    <div class="row" style="height: 68px; background-color:#1b9606">
         <div class="row">
             <div class="col-md-8">
                 <?php
