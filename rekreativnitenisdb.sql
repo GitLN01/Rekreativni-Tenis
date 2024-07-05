@@ -169,8 +169,9 @@ CREATE TABLE `sportski_klubovi` (
 
 INSERT INTO `sportski_klubovi` (`id`, `naziv`, `adresa`) VALUES
 (1, 'Borac', 'Cacak'),
-(2, 'Zevzda', 'Beograd'),
-(3, 'Partizan', 'Beograd');
+(2, 'Crvena Zvezda', 'Beograd'),
+(3, 'Partizan', 'Beograd'),
+(4, 'Djukic', 'Beograd');
 
 -- --------------------------------------------------------
 
