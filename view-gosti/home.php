@@ -4,7 +4,7 @@ require_once '../model/Korisnik.php';
 ?>
 
 <div class="container-fluid p-0">
-    <div class="row" style="height: 68px; background-color:#21ad09">
+    <div class="row" style="height: 68px; background-color:#09731e">
         <div class="row">
             <div class="col-md-8">
                 <?php
