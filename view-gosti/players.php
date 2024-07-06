@@ -8,16 +8,15 @@ $korisnikDAO = new KorisnikDAO();
 $igraci = $korisnikDAO->getAllIgraci();
 ?>
 
-<div class="container-fluid"
-    style="overflow: hidden; background-repeat: no-repeat; background-size: cover; background-image: url('images/carousel2.jpg');">
+<div class="container-fluid" style="overflow: hidden; background-repeat: no-repeat; background-size: cover; background-image: url('images/carousel3.jpg');">
     <div class="row">
         <?php
 
         $msg = isset($_SESSION['msg']) ? $_SESSION['msg'] : '';
         if (!empty($msg)) {
             ?>
-            <div class="toast show  position-fixed bottom-0 end-0 p-3" style="z-index: 11">
-                <div class="toast-header ">
+            <div class="toast show position-fixed bottom-0 end-0 p-3" style="z-index: 11;">
+                <div class="toast-header">
                     <strong class="me-auto"></strong>
                     <button type="button" class="btn-close" data-bs-dismiss="toast"></button>
                 </div>
@@ -27,52 +26,55 @@ $igraci = $korisnikDAO->getAllIgraci();
             </div>
         <?php }
         ?>
-        <div class="container m-3" style="width: 90%;">
+        <h2 class="m-4 text-white">Prikaz svih igrača</h2>
+        <div class="container mt-3 mb-5 p-3" style="background-color: rgba(255, 255, 255, 0.8); border-radius: 10px;">
+            
 
-            <table class="table table-bordered  text-center  table-striped  table-sm mt-3" cellspacing="0"
-                style=" margin-left:auto;margin-right:auto" id="dtBasicExample">
+            <table id="igraciTable" class="table table-bordered table-striped table-hover text-center">
                 <thead class="table-dark sticky-top bg-white">
                     <tr>
-                        <th class="th-sm">Ime</th>
-                        <th class="th-sm">Prezime</th>
-                        <th class="th-sm">Visina</th>
-                        <th class="th-sm">Godine</th>
-                        <th class="th-sm">Pobede</th>
-                        <th class="th-sm">Porazi</th>
-                        <th class="th-sm">Email</th>
-
+                        <th>Ime</th>
+                        <th>Prezime</th>
+                        <th>Visina</th>
+                        <th>Godine</th>
+                        <th>Pobede</th>
+                        <th>Porazi</th>
+                        <th>Email</th>
                     </tr>
                 </thead>
                 <tbody>
-
-
-                    <?php foreach ($igraci as $item): ?>
+                    <?php foreach ($igraci as $item) : ?>
                         <tr>
-                            <td style="background-color: #b0b5b1;color:white;font-weight:bold;"><?= $item['ime'] ?></td>
-                            <td style="background-color: #b0b5b1;color:white;font-weight:bold;"><?= $item['prezime'] ?></td>
-                            <td style="background-color: #b0b5b1;color:white;font-weight:bold;"><?= $item['visina'] ?></td>
-                            <td style="background-color: #b0b5b1;color:white;font-weight:bold;"><?= $item['godine'] ?></td>
-                            <td style="background-color: #b0b5b1;color:white;font-weight:bold;"><?= $item['pobeda'] ?></td>
-                            <td style="background-color: #b0b5b1;color:white;font-weight:bold;"><?= $item['porazi'] ?></td>
-                            <td style="background-color: #b0b5b1;color:white;font-weight:bold;"><?= $item['email'] ?></td>
+                            <td><?= $item['ime'] ?></td>
+                            <td><?= $item['prezime'] ?></td>
+                            <td><?= $item['visina'] ?></td>
+                            <td><?= $item['godine'] ?></td>
+                            <td><?= $item['pobeda'] ?></td>
+                            <td><?= $item['porazi'] ?></td>
+                            <td><?= $item['email'] ?></td>
                         </tr>
                     <?php endforeach; ?>
                 </tbody>
             </table>
         </div>
+    </div>
+</div>
 
-        <script>
-            $(document).ready(function () {
-                $('#dtBasicExample').DataTable();
-                //$('.dataTables_length').addClass('bs-select');
-                //$('.pagination').hide();
-                //$('#dtBasicExample_info').hide();
-                //$('#dtBasicExample_paginate').hide();
-                $('#dtBasicExample_length').hide();
+<script>
+    $(document).ready(function() {
+        $('#igraciTable').DataTable({
+            "paging": true,
+            "lengthChange": true,
+            "searching": true,
+            "ordering": true,
+            "info": true,
+            "autoWidth": false,
+            "responsive": true,
+            "language": {
+                "url": "//cdn.datatables.net/plug-ins/1.10.24/i18n/Serbian.json"
+            }
+        });
+    });
+</script>
 
-            });
-        </script>
-
-        <?php
-        require_once './partials/footer.php';
-        ?>
+<?php require_once './partials/footer.php'; ?>

@@ -8,15 +8,14 @@ $klubDAO = new SportskiKlubDAO();
 $klubovi = $klubDAO->getAllSportskiKlubovi();
 ?>
 
-<div class="container-fluid" style="overflow: hidden; background-repeat: no-repeat; background-size: cover; background-image: url('images/carousel1.jpg');">
+<div class="container-fluid" style="background-image: url('images/carousel3.jpg'); background-repeat: no-repeat; background-size: cover; overflow: hidden;">
     <div class="row">
         <?php
-
         $msg = isset($_SESSION['msg']) ? $_SESSION['msg'] : '';
         if (!empty($msg)) {
             ?>
-            <div class="toast show  position-fixed bottom-0 end-0 p-3" style="z-index: 11">
-                <div class="toast-header ">
+            <div class="toast show position-fixed bottom-0 end-0 p-3" style="z-index: 11;">
+                <div class="toast-header">
                     <strong class="me-auto"></strong>
                     <button type="button" class="btn-close" data-bs-dismiss="toast"></button>
                 </div>
@@ -26,43 +25,46 @@ $klubovi = $klubDAO->getAllSportskiKlubovi();
             </div>
         <?php }
         ?>
-        <div class="container m-3" style="width: 90%;">
+        <h2 class="m-4 text-white">Prikaz svih sportskih klubova</h2>
 
-            <table class="table table-bordered  text-center  table-striped  table-sm mt-3" cellspacing="0"
-                style=" margin-left:auto;margin-right:auto" id="dtBasicExample">
-                <thead class="table-dark sticky-top bg-white">
+        <div class="container mt-3 mb-5 p-3" style="background-color: rgba(255, 255, 255, 0.8); border-radius: 10px;">
+            <table id="kluboviTable" class="table table-bordered table-striped table-hover text-center">
+                <thead class="table-dark">
                     <tr>
-                        <th class="th-sm" style="background-color: #343a40; color: white;">Id</th>
-                        <th class="th-sm" style="background-color: #343a40; color: white;">Naziv</th>
-                        <th class="th-sm" style="background-color: #343a40; color: white;">Adresa</th>
+                        <th class="th-sm">Id</th>
+                        <th class="th-sm">Naziv</th>
+                        <th class="th-sm">Adresa</th>
                     </tr>
                 </thead>
                 <tbody>
-                    <?php foreach ($klubovi as $item): ?>
+                    <?php foreach ($klubovi as $item) : ?>
                         <tr>
-                            <td style="background-color: #b0b5b1;color:white;font-weight:bold;"><?= $item['id'] ?></td>
-                            <td style="background-color: #b0b5b1;color:white;font-weight:bold;"><?= $item['naziv'] ?></td>
-                            <td style="background-color: #b0b5b1;color:white;font-weight:bold;"><?= $item['adresa'] ?></td>
+                            <td><?= $item['id'] ?></td>
+                            <td><?= $item['naziv'] ?></td>
+                            <td><?= $item['adresa'] ?></td>
                         </tr>
                     <?php endforeach; ?>
                 </tbody>
             </table>
         </div>
-
-
     </div>
-    <script>
-        $(document).ready(function () {
-            $('#dtBasicExample').DataTable();
-            //$('.dataTables_length').addClass('bs-select');
-            //$('.pagination').hide();
-            //$('#dtBasicExample_info').hide();
-            //$('#dtBasicExample_paginate').hide();
-            $('#dtBasicExample_length').hide();
+</div>
 
+<script>
+    $(document).ready(function() {
+        $('#kluboviTable').DataTable({
+            "paging": true,
+            "lengthChange": true,
+            "searching": true,
+            "ordering": true,
+            "info": true,
+            "autoWidth": false,
+            "responsive": true,
+            "language": {
+                "url": "//cdn.datatables.net/plug-ins/1.10.24/i18n/Serbian.json"
+            }
         });
-    </script>
+    });
+</script>
 
-    <?php
-    require_once './partials/footer.php';
-    ?>
+<?php require_once './partials/footer.php'; ?>

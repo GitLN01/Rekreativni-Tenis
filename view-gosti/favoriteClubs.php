@@ -25,7 +25,7 @@ unset($_SESSION['igrac']);
                         <?php endforeach; ?>
                     </select>
                 </div>
-                <button type="submit" class="btn btn-primary w-100">Sačuvaj</button>
+                <button type="submit" class="btn btn-success w-100">Prikaži</button>
                 <?php
                 $msg = isset($_SESSION['msg']) ? $_SESSION['msg'] : '';
                 unset($_SESSION['msg']);
