@@ -5,120 +5,102 @@ require_once '../DAO/PregledRezultataDAO.php';
 require_once '../DAO/KorisnikDAO.php';
 require_once '../model/Korisnik.php';
 
-$rezultati = new PregledRezultataDAO();
-$rezultati = $rezultati->getAllJOIN();
+$rezultatiDAO = new PregledRezultataDAO();
+$rezultati = $rezultatiDAO->getAllJOIN();
 $korisnikDAO = new KorisnikDAO();
-// print_r($rezultati);
-
 ?>
 
+<div class="container-fluid" style="background-image: url('./images/carousel3.jpg'); background-repeat: no-repeat; background-size: cover; overflow: auto; height: 100vh;">
+    <h2 class="m-4 text-white">Svi rezultati</h2>
 
-<div class="container" style=" background-repeat: no-repeat; background-size: cover">
-    <div class="row">
-
-        <?php
-
-        $msg = isset($_SESSION['msg']) ? $_SESSION['msg'] : '';
-        if (!empty($msg)) {
-        ?>
-            <div class="toast show  position-fixed bottom-0 end-0 p-3" style="z-index: 11">
-                <div class="toast-header ">
-                    <strong class="me-auto"></strong>
-                    <button type="button" class="btn-close" data-bs-dismiss="toast"></button>
-                </div>
-                <div class="toast-body">
-                    <p><?= $msg ?></p>
-                </div>
+    <?php
+    $msg = isset($_SESSION['msg']) ? $_SESSION['msg'] : '';
+    if (!empty($msg)) {
+    ?>
+        <div class="toast show position-fixed bottom-0 end-0 p-3" style="z-index: 11">
+            <div class="toast-header">
+                <strong class="me-auto"></strong>
+                <button type="button" class="btn-close" data-bs-dismiss="toast"></button>
             </div>
-        <?php }
-        ?>
-        <div class="container m-3" style="width: 90%;background-color: white; padding: 2rem; border: 1px solid darkblue; border-radius:10px">
-            <h5>Svi rezultati</h5>
-            <a href="win.php">Rangiranje prema broju pobeda</a><br>
-            <a href="win-loses.php">Rangiranje prema odnosu broja pobeda i poraza</a>
-            <table class="table table-sm table-bordered  text-center  table-striped  table-sm mt-3" cellspacing="0" style=" margin-left:auto;margin-right:auto;font-size: 15px;" id="dtBasicExample">
-                <thead class="table-dark sticky-top bg-white">
-                    <tr>
-                        <th class="th-sm">Rezultat</th>
-                        <th class="th-sm">Potvrda rezultata</th>
-                        <th class="th-sm">Id rezervacije</th>
-                        <th class="th-sm">Protivnik 1</th>
-                        <th class="th-sm">Protivnik 2</th>
-                        <th class="th-sm">Protivnik 3</th>
-                        <th class="th-sm">Protivnik 4</th>
-                        <th class="th-sm">Status meča</th>
-                    </tr>
-                </thead>
-                <tbody>
-
-
-                    <?php foreach ($rezultati as $item) : ?>
-                        <tr>
-                            <td><?= $item['rezultat'] ?></td>
-                            <td><?php echo $item['potvrda_rezultata'] == 1 ? ' <button class="btn btn-sm btn-outline-success px-3">Potvrđen</button>' : '<button class="btn btn-sm btn-outline-danger">Nepotvrđen</button>'; ?></td>
-
-                            <td><?= $item['id_rezervacije'] ?></td>
-                            <td>
-                                <?php
-                                $igraci = $korisnikDAO->getAllIgraciById($item['id_igraca1']);
-                                if ($igraci != null)
-                                    echo $igraci['ime'] . ' ' . $igraci['prezime'];
-                                else
-                                    echo '/';
-                                ?>
-                            </td>
-
-                            <td>
-                                <?php
-                                $igraci = $korisnikDAO->getAllIgraciById($item['id_igraca2']);
-                                if ($igraci != null)
-                                    echo $igraci['ime'] . ' ' . $igraci['prezime'];
-                                else
-                                    echo '/';
-                                ?>
-                            </td>
-
-                            <td>
-                                <?php
-                                $igraci = $korisnikDAO->getAllIgraciById($item['id_igraca3']);
-                                if ($igraci != null)
-                                    echo $igraci['ime'] . ' ' . $igraci['prezime'];
-                                else
-                                    echo '/';
-                                ?>
-                            </td>
-
-                            <td>
-                                <?php
-                                $igraci = $korisnikDAO->getAllIgraciById($item['id_igraca4']);
-                                if ($igraci != null)
-                                    echo $igraci['ime'] . ' ' . $igraci['prezime'];
-                                else
-                                    echo '/';
-                                ?>
-                            </td>
-
-                            <td><?= $item['status_meca'] ?></td>
-
-                        </tr>
-                    <?php endforeach; ?>
-                </tbody>
-            </table>
+            <div class="toast-body">
+                <p><?= $msg ?></p>
+            </div>
         </div>
-        <script>
-            // $('#sortTable').DataTable();
-            $(document).ready(function() {
-                $('#dtBasicExample').DataTable();
-                $('.dataTables_length').addClass('bs-select');
-                $('.pagination').hide();
-                $('#dtBasicExample_info').hide();
-                $('#dtBasicExample_paginate').hide();
-                $('#dtBasicExample_length').hide();
+    <?php } ?>
 
-            });
-        </script>
+    <div class="container mt-3 mb-3 p-3" style="background-color: rgba(255, 255, 255, 0.8); border-radius: 10px;">
+        <table id="rezultatiTable" class="table table-bordered table-striped table-hover text-center mt-3">
+            <thead class="table-dark sticky-top bg-white">
+                <tr>
+                    <th class="th-sm">Rezultat</th>
+                    <th class="th-sm">Potvrda rezultata</th>
+                    <th class="th-sm">Id rezervacije</th>
+                    <th class="th-sm">Protivnik 1</th>
+                    <th class="th-sm">Protivnik 2</th>
+                    <th class="th-sm">Protivnik 3</th>
+                    <th class="th-sm">Protivnik 4</th>
+                    <th class="th-sm">Status meča</th>
+                </tr>
+            </thead>
+            <tbody>
+                <?php foreach ($rezultati as $item) : ?>
+                    <tr>
+                        <td><?= $item['rezultat'] ?></td>
+                        <td>
+                            <?php echo $item['potvrda_rezultata'] == 1 ? '<button class="btn btn-sm btn-outline-success px-3">Potvrđen</button>' : '<button class="btn btn-sm btn-outline-danger px-3">Nepotvrđen</button>'; ?>
+                        </td>
+                        <td><?= $item['id_rezervacije'] ?></td>
+                        <td>
+                            <?php
+                            $igrac1 = $korisnikDAO->getAllIgraciById($item['id_igraca1']);
+                            echo $igrac1 ? $igrac1['ime'] . ' ' . $igrac1['prezime'] : '/';
+                            ?>
+                        </td>
+                        <td>
+                            <?php
+                            $igrac2 = $korisnikDAO->getAllIgraciById($item['id_igraca2']);
+                            echo $igrac2 ? $igrac2['ime'] . ' ' . $igrac2['prezime'] : '/';
+                            ?>
+                        </td>
+                        <td>
+                            <?php
+                            $igrac3 = $korisnikDAO->getAllIgraciById($item['id_igraca3']);
+                            echo $igrac3 ? $igrac3['ime'] . ' ' . $igrac3['prezime'] : '/';
+                            ?>
+                        </td>
+                        <td>
+                            <?php
+                            $igrac4 = $korisnikDAO->getAllIgraciById($item['id_igraca4']);
+                            echo $igrac4 ? $igrac4['ime'] . ' ' . $igrac4['prezime'] : '/';
+                            ?>
+                        </td>
+                        <td><?= $item['status_meca'] ?></td>
+                    </tr>
+                <?php endforeach; ?>
+            </tbody>
+        </table>
+    </div>
 
-        <?php
+    <h3><a href="win.php" class="m-4 text-white" style="text-decoration:none;">Rangiranje prema broju pobeda</a><br></h3>
+    <h3><a href="win-loses.php" class="m-4 text-white" style="text-decoration:none;">Rangiranje prema odnosu broja pobeda i poraza</a></h3>
 
-        require_once './partials/footer.php';
-        ?>
+</div>
+
+<?php require_once './partials/footer.php'; ?>
+
+<script>
+    $(document).ready(function() {
+        $('#rezultatiTable').DataTable({
+            "paging": true,
+            "lengthChange": true,
+            "searching": true,
+            "ordering": true,
+            "info": true,
+            "autoWidth": false,
+            "responsive": true,
+            "language": {
+                "url": "//cdn.datatables.net/plug-ins/1.10.24/i18n/Serbian.json"
+            }
+        });
+    });
+</script>

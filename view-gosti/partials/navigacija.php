@@ -74,6 +74,11 @@
             Omiljeni igraci
           </a>
         </li>
+        
+        <li>
+          <a href="./OProjektu.php" class="nav-link text-white">
+            O projektu
+          </a>
         </li>
       </ul>
       <hr>
