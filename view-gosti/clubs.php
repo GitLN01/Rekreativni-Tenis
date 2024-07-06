@@ -8,8 +8,7 @@ $klubDAO = new SportskiKlubDAO();
 $klubovi = $klubDAO->getAllSportskiKlubovi();
 ?>
 
-<div class="container-fluid"
-    style="overflow: hidden; background-repeat: no-repeat; background-size: cover; background-image: url('images/carousel1.jpg');">
+<div class="container-fluid" style="overflow: hidden; background-repeat: no-repeat; background-size: cover; background-image: url('images/carousel1.jpg');">
     <div class="row">
         <?php
 
@@ -41,9 +40,9 @@ $klubovi = $klubDAO->getAllSportskiKlubovi();
                 <tbody>
                     <?php foreach ($klubovi as $item): ?>
                         <tr>
-                            <td style="background-color: #21ad09;color:white;font-weight:bold;"><?= $item['id'] ?></td>
-                            <td style="background-color: #21ad09;color:white;font-weight:bold;"><?= $item['naziv'] ?></td>
-                            <td style="background-color: #21ad09;color:white;font-weight:bold;"><?= $item['adresa'] ?></td>
+                            <td style="background-color: #b0b5b1;color:white;font-weight:bold;"><?= $item['id'] ?></td>
+                            <td style="background-color: #b0b5b1;color:white;font-weight:bold;"><?= $item['naziv'] ?></td>
+                            <td style="background-color: #b0b5b1;color:white;font-weight:bold;"><?= $item['adresa'] ?></td>
                         </tr>
                     <?php endforeach; ?>
                 </tbody>

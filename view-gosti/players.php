@@ -8,13 +8,14 @@ $korisnikDAO = new KorisnikDAO();
 $igraci = $korisnikDAO->getAllIgraci();
 ?>
 
-<div class="container" style="overflow:scroll;">
+<div class="container-fluid"
+    style="overflow: hidden; background-repeat: no-repeat; background-size: cover; background-image: url('images/carousel2.jpg');">
     <div class="row">
         <?php
 
         $msg = isset($_SESSION['msg']) ? $_SESSION['msg'] : '';
         if (!empty($msg)) {
-        ?>
+            ?>
             <div class="toast show  position-fixed bottom-0 end-0 p-3" style="z-index: 11">
                 <div class="toast-header ">
                     <strong class="me-auto"></strong>
@@ -28,7 +29,8 @@ $igraci = $korisnikDAO->getAllIgraci();
         ?>
         <div class="container m-3" style="width: 90%;">
 
-            <table class="table table-bordered  text-center  table-striped  table-sm mt-3" cellspacing="0" style=" margin-left:auto;margin-right:auto" id="dtBasicExample">
+            <table class="table table-bordered  text-center  table-striped  table-sm mt-3" cellspacing="0"
+                style=" margin-left:auto;margin-right:auto" id="dtBasicExample">
                 <thead class="table-dark sticky-top bg-white">
                     <tr>
                         <th class="th-sm">Ime</th>
@@ -44,41 +46,28 @@ $igraci = $korisnikDAO->getAllIgraci();
                 <tbody>
 
 
-                    <?php foreach ($igraci as $item) : ?>
+                    <?php foreach ($igraci as $item): ?>
                         <tr>
-                            <td><?= $item['ime'] ?></td>
-                            <td><?= $item['prezime'] ?></td>
-                            <td><?= $item['visina'] ?></td>
-                            <td><?= $item['godine'] ?></td>
-                            <td><?= $item['pobeda'] ?></td>
-                            <td><?= $item['porazi'] ?></td>
-                            <td><?= $item['email'] ?></td>
+                            <td style="background-color: #b0b5b1;color:white;font-weight:bold;"><?= $item['ime'] ?></td>
+                            <td style="background-color: #b0b5b1;color:white;font-weight:bold;"><?= $item['prezime'] ?></td>
+                            <td style="background-color: #b0b5b1;color:white;font-weight:bold;"><?= $item['visina'] ?></td>
+                            <td style="background-color: #b0b5b1;color:white;font-weight:bold;"><?= $item['godine'] ?></td>
+                            <td style="background-color: #b0b5b1;color:white;font-weight:bold;"><?= $item['pobeda'] ?></td>
+                            <td style="background-color: #b0b5b1;color:white;font-weight:bold;"><?= $item['porazi'] ?></td>
+                            <td style="background-color: #b0b5b1;color:white;font-weight:bold;"><?= $item['email'] ?></td>
                         </tr>
                     <?php endforeach; ?>
                 </tbody>
             </table>
         </div>
-        <div class="row">
-        <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel" style="padding-left:25rem">
 
-  <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
-    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-    <span class="visually-hidden">Previous</span>
-  </button>
-  <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="next">
-    <span class="carousel-control-next-icon" aria-hidden="true"></span>
-    <span class="visually-hidden">Next</span>
-  </button>
-</div>
-            
-        </div>
         <script>
-            $(document).ready(function() {
+            $(document).ready(function () {
                 $('#dtBasicExample').DataTable();
-                $('.dataTables_length').addClass('bs-select');
-                $('.pagination').hide();
-                $('#dtBasicExample_info').hide();
-                $('#dtBasicExample_paginate').hide();
+                //$('.dataTables_length').addClass('bs-select');
+                //$('.pagination').hide();
+                //$('#dtBasicExample_info').hide();
+                //$('#dtBasicExample_paginate').hide();
                 $('#dtBasicExample_length').hide();
 
             });
