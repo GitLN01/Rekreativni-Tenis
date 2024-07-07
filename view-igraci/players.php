@@ -29,7 +29,7 @@ $igraci = $korisnikDAO->getAllIgraci();
         ?>
 
         <h1 class="h1 m-2 mt-3" style="color:white;">Prikaz svih igrača:</h1>
-        <div class="container m-3" style="width: 90%; background-color: #ffffff; border-radius: 10px; padding: 20px;">
+        <div class="container m-3" style="width: 90%; background-color: rgba(255,255,255,0.8); border-radius: 10px; padding: 20px;">
 
             <table class="table table-bordered  text-center  table-striped  table-sm mt-3" cellspacing="0"
                 style=" margin-left:auto;margin-right:auto" id="dtBasicExample">

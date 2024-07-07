@@ -29,7 +29,7 @@
     <div class="d-flex flex-column flex-shrink-0 p-3 text-white " style="width: 280px; background-color:#09731e">
       <a href="pocetnaIgraci.php" class=" text-center d-flex align-items-center mb-3 mb-md-0 me-md-auto text-white text-decoration-none">
 
-        <span class="fs-4 text-center">IGRAČI</span>
+        <span class="fs-4 text-center">&nbsp;&nbsp;IGRAČI</span>
       </a>
       <hr>
       <ul class="nav nav-pills flex-column mb-auto">
