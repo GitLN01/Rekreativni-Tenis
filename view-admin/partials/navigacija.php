@@ -27,12 +27,7 @@
             </a>
             <hr style="background-color:white;color:white">
             <ul class="nav nav-pills flex-column mb-auto">
-                <li class="nav-item">
-                    <a href="./pocetna.php" class="nav-link text-white" aria-current="page">
-                        &nbsp;&nbsp;&nbsp;&nbsp;
-                        Početna
-                    </a>
-                </li>
+
                 <li>
                     <a href="./tereni.php" class="nav-link text-white">
                         &nbsp;&nbsp;&nbsp;&nbsp;

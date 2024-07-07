@@ -74,14 +74,19 @@ $igraci = $korisnikDAO->getAllIgraci();
         </div>
         <script>
             $(document).ready(function() {
-                $('#dtBasicExample').DataTable();
-                $('.dataTables_length').addClass('bs-select');
-                $('.pagination').hide();
-                $('#dtBasicExample_info').hide();
-                $('#dtBasicExample_paginate').hide();
-                $('#dtBasicExample_length').hide();
-
-            });
+        $('#dtBasicExample').DataTable({
+            "paging": true,
+            "lengthChange": true,
+            "searching": true,
+            "ordering": true,
+            "info": true,
+            "autoWidth": false,
+            "responsive": true,
+            "language": {
+                "url": "//cdn.datatables.net/plug-ins/1.10.24/i18n/Serbian.json"
+            }
+        });
+    });
         </script>
 
         <?php
