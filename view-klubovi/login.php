@@ -7,7 +7,14 @@
     <title>Klubovi</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
     <link rel="stylesheet" href="./css/error-validacija.css">
-
+    <style>
+        body {
+            background-image: url('images/image11.jpg');
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+        }
+    </style>
 </head>
 
 <body>
@@ -21,7 +28,7 @@
   //  print_r($korisnicko_ime);
     ?>
 
-    <section class="vh-100" style="background-image: url('./images/image11.jpg');">
+    <section class="vh-100">
         <div class="container py-5 h-100" >
             <div class="row d-flex justify-content-center align-items-center h-100" >
                 <div class="col-12 col-md-8 col-lg-6 col-xl-5">
