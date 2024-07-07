@@ -37,7 +37,7 @@ if (time() - $vremeActivneSesije < 10 * 60) {
                     }
                     unset($_SESSION['msg']);
                     ?>
-                    <div class="container m-3" style="width: 90%;">
+                    <div class="container" style="width: 90%;">
                         <table class="table table-bordered text-center table-striped table-sm mt-3" cellspacing="0"
                             style="margin-left:auto;margin-right:auto" id="dtBasicExample">
                             <thead class="table-dark sticky-top bg-white">
@@ -76,18 +76,25 @@ if (time() - $vremeActivneSesije < 10 * 60) {
                     <script>
                         $(document).ready(function () {
                             $('#dtBasicExample').DataTable({
-                                "paging": false,
-                                "info": false,
-                                "searching": false
+                                "paging": true,
+                                "lengthChange": true,
+                                "searching": true,
+                                "ordering": true,
+                                "info": true,
+                                "autoWidth": false,
+                                "responsive": true,
+                                "language": {
+                                    "url": "//cdn.datatables.net/plug-ins/1.10.24/i18n/Serbian.json"
+                                }
                             });
                         });
                     </script>
                 </div>
-                
+
             </div>
             <div class="d-flex justify-content-center mt-4">
-                    <a class="btn btn-primary btn-lg" href="formaInserttereni.php">Dodaj teren</a>
-                </div>
+                <a class="btn btn-primary btn-lg" href="formaInserttereni.php">Dodaj teren</a>
+            </div>
         </div>
 
         <?php
