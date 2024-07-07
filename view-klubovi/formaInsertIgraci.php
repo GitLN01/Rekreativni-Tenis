@@ -16,11 +16,11 @@ if (time() - $vremeActivneSesije <  10 * 60) {
         unset($_SESSION['igrac']);
         ?>
 
-
+<div class="container-fluid" style="background-image: url('images/carousel1.jpg'); background-size: cover; background-repeat: no-repeat; overflow-y: scroll; height: 100vh;">
         <div class="container">
             <div class="row mt-4" style="width: 45%;margin-left:auto;margin-right:auto">
                 <div class="col-md-12">
-                    <form id="formIgrac" action="../controller-klubovi/Igraci.php?action=insert" method="post" class="border rounded p-5">
+                    <form id="formIgrac" action="../controller-klubovi/Igraci.php?action=insert" method="post" class="border rounded p-5" style="background-color:rgba(255,255,255,0.8);">
                         <div class="mb-3">
                             <div class="row">
                                 <div class="col-md-6">
@@ -94,13 +94,14 @@ if (time() - $vremeActivneSesije <  10 * 60) {
             </div>
 
         </div>
+        </div>
         <script src="./js/jquery-3.6.0.js"></script>
         <script src="./js/jquery.validate.min.js"></script>
         <script src="./js/validacija-igraci.js"></script>
 <?php
     }
 } else {
-    // REDIREKCIJA NA POCETNU STRANU DA SE OBRISE I UNISTI SESIJA AKO JE ISTEKLA
+
     session_unset();
     session_destroy();
     header("Location: login.php");
