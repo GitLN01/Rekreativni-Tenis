@@ -8,13 +8,14 @@ $korisnikDAO = new KorisnikDAO();
 $igraci = $korisnikDAO->getAllIgraci();
 ?>
 
-<div class="container">
+<div class="container-fluid"
+    style="background-repeat: no-repeat; background-size: cover; background-image: url('images/carousel1.jpg'); overflow-y: scroll; height: 100vh;">
     <div class="row">
         <?php
 
         $msg = isset($_SESSION['msg']) ? $_SESSION['msg'] : '';
         if (!empty($msg)) {
-        ?>
+            ?>
             <div class="toast show  position-fixed bottom-0 end-0 p-3" style="z-index: 11">
                 <div class="toast-header ">
                     <strong class="me-auto"></strong>
@@ -26,9 +27,12 @@ $igraci = $korisnikDAO->getAllIgraci();
             </div>
         <?php }
         ?>
-        <div class="container m-3" style="width: 90%;">
 
-            <table class="table table-bordered  text-center  table-striped  table-sm mt-3" cellspacing="0" style=" margin-left:auto;margin-right:auto" id="dtBasicExample">
+        <h1 class="h1 m-2 mt-3" style="color:white;">Prikaz svih igrača:</h1>
+        <div class="container m-3" style="width: 90%; background-color: #ffffff; border-radius: 10px; padding: 20px;">
+
+            <table class="table table-bordered  text-center  table-striped  table-sm mt-3" cellspacing="0"
+                style=" margin-left:auto;margin-right:auto" id="dtBasicExample">
                 <thead class="table-dark sticky-top bg-white">
                     <tr>
                         <th class="th-sm">Ime</th>
@@ -42,9 +46,7 @@ $igraci = $korisnikDAO->getAllIgraci();
                     </tr>
                 </thead>
                 <tbody>
-
-
-                    <?php foreach ($igraci as $item) : ?>
+                    <?php foreach ($igraci as $item): ?>
                         <tr>
                             <td><?= $item['ime'] ?></td>
                             <td><?= $item['prezime'] ?></td>
@@ -58,35 +60,22 @@ $igraci = $korisnikDAO->getAllIgraci();
                 </tbody>
             </table>
         </div>
-        <div class="row">
-        <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel" style="padding-left:25rem">
-  <div class="carousel-inner">
-  <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
-    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-    <span class="visually-hidden">Previous</span>
-  </button>
-  <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="next">
-    <span class="carousel-control-next-icon" aria-hidden="true"></span>
-    <span class="visually-hidden">Next</span>
-  </button>
-</div>
-            
-        </div>
+
         <script>
-            $(document).ready(function() {
-        $('#dtBasicExample').DataTable({
-            "paging": true,
-            "lengthChange": true,
-            "searching": true,
-            "ordering": true,
-            "info": true,
-            "autoWidth": false,
-            "responsive": true,
-            "language": {
-                "url": "//cdn.datatables.net/plug-ins/1.10.24/i18n/Serbian.json"
-            }
-        });
-    });
+            $(document).ready(function () {
+                $('#dtBasicExample').DataTable({
+                    "paging": true,
+                    "lengthChange": true,
+                    "searching": true,
+                    "ordering": true,
+                    "info": true,
+                    "autoWidth": false,
+                    "responsive": true,
+                    "language": {
+                        "url": "//cdn.datatables.net/plug-ins/1.10.24/i18n/Serbian.json"
+                    }
+                });
+            });
         </script>
 
         <?php
