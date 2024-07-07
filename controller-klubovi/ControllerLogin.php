@@ -1,9 +1,9 @@
 <?php
 require_once '../DAO/KorisnikDAO.php';
 require_once '../model/Korisnik.php';
+
 class ControllerLogin
 {
-
     function test_input($data)
     {
         $data = trim($data);
@@ -11,14 +11,15 @@ class ControllerLogin
         $data = htmlspecialchars($data);
         return $data;
     }
+
     public function Logout()
     {
         session_start();
-        //unset($_SESSION['loginK']);
         session_unset();
         session_destroy();
         header("Location:../view-klubovi/login.php");
     }
+
     public function Login()
     {
         session_start();
@@ -31,11 +32,10 @@ class ControllerLogin
                     if (filter_var($email, FILTER_VALIDATE_EMAIL)) {
                         $korisnikDAO = new KorisnikDAO();
                         $korisnik = $korisnikDAO->LoginKlub($email, $lozinka);
-                        if ($korisnik != new Korisnik()) {
+                        if ($korisnik != null) {
                             if ($zapanti_ime == 'on') {
                                 setcookie('korisnicko_ime', serialize($email), time() + 60 * 60 * 24, "/");
                             }
-                            // print_r($_COOKIE);
                             $_SESSION['loginK'] = serialize($korisnik);
                             $_SESSION['last_active1'] = time();
                             header("Location:../view-klubovi/pocetna.php");
