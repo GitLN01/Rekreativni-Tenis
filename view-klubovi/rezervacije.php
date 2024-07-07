@@ -18,7 +18,7 @@ if (time() - $vremeActivneSesije < 10 * 60) {
         ?>
 
         <div class="container-fluid" style="background-repeat: no-repeat; background-size: cover; background-image: url('images/carousel1.jpg'); overflow-y: scroll; height: 100vh;">
-            <h1 class="h1 m-2 mt-3" style="color:white;">Prikaz svih terena:</h1>
+            <h1 class="h1 m-2 mt-3" style="color:white;">Prikaz svih rezervacija:</h1>
             <div class="container m-3" style="width: 90%; background-color: rgba(255,255,255,0.8); border-radius: 10px; padding: 20px;">
                 <div class="row">
                     <div class="col-md-12">

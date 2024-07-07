@@ -6,48 +6,49 @@ require_once '../DAO/TerenDAO.php';
 require_once '../DAO/KorisnikDAO.php';
 require_once '../model/Teren.php';
 require_once '../DAO/MecDAO.php';
-$tereni = new TerenDAO();
-$tereni = $tereni->getAllTereni();
+
+// Fetching data from DAOs
+$tereniDAO = new TerenDAO();
+$tereni = $tereniDAO->getAllTereni();
+
 $korinikDAO = new KorisnikDAO();
 $igraci = $korinikDAO->getAllIgraci();
+
 $mecDAO = new MecDAO();
 $mecevi = $mecDAO->getAllMecevi();
+
 session_start();
 $vremeActivneSesije = isset($_SESSION['last_active1']) ? $_SESSION['last_active1'] : 0;
+
+// Checking session timeout
 if (time() - $vremeActivneSesije < 10 * 60) {
-
     if (!isset($_SESSION['loginK'])) {
-        header("Location:./login.php");
+        header("Location: ./login.php");
     } else {
-        //print_r($igraci);
 ?>
-
-
-
-        <div class="container">
+        <div class="container-fluid" style="background-repeat: no-repeat; background-size: cover; background-image: url('images/carousel1.jpg'); overflow-y: scroll; height: 100vh;">
             <?php
-
+            // Display toast message if set
             $msg = isset($_SESSION['msg']) ? $_SESSION['msg'] : '';
             if (!empty($msg)) {
             ?>
-                <div class="toast show  position-fixed bottom-0 end-0 p-3 " style="z-index: 11; background-color: #ffd4dc;">
-                    <div class="toast-header" style="background-color: #ffd4dc;"">
-                    <strong class=" me-auto"></strong>
+                <div class="toast show position-fixed bottom-0 end-0 p-3" style="z-index: 11; background-color: #ffd4dc;">
+                    <div class="toast-header" style="background-color: #ffd4dc;">
+                        <strong class="me-auto"></strong>
                         <button type="button" class="btn-close" data-bs-dismiss="toast"></button>
                     </div>
                     <div class="toast-body">
                         <p><?= $msg ?></p>
                     </div>
                 </div>
-            <?php }
+            <?php
+            }
             unset($_SESSION['msg']);
-            //session_destroy();
             ?>
-            <div class="row mt-4" style="width: 45%;margin-left:auto;margin-right:auto">
+            <div class="row mt-4" style="width: 45%; margin-left: auto; margin-right: auto;">
                 <div class="col-md-12">
-                    <form id="formRezervacija" action="../controller-klubovi/Rezervacija.php?action=insertSingle" method="post" class="border rounded p-5">
+                    <form id="formRezervacija" action="../controller-klubovi/Rezervacija.php?action=insertSingle" method="post" class="border rounded p-5" style="width: 90%; background-color: rgba(255,255,255,0.8); border-radius: 10px; padding: 20px;">
                         <div class="mb-3">
-
                             <div class="row">
                                 <div class="col-md-6">
                                     <label for="id_igraca1" class="form-label">Protivnik1 <span class="text-danger">*</span></label>
@@ -68,13 +69,7 @@ if (time() - $vremeActivneSesije < 10 * 60) {
                                     </select>
                                 </div>
                             </div>
-
                         </div>
-
-
-
-
-
                         <div class="mb-3">
                             <label for="id_terena" class="form-label">Teren <span class="text-danger">*</span></label>
                             <select name="id_terena" class="form-control">
@@ -95,27 +90,17 @@ if (time() - $vremeActivneSesije < 10 * 60) {
                         </div>
                         <div class="mb-3">
                             <label for="datum" class="form-label">Datum <span class="text-danger">*</span></label>
-                            <input type="date" class="form-control" name="datum" value="<?php echo date("Y-m-d") ?>">
+                            <input type="date" class="form-control" name="datum" value="<?= date("Y-m-d") ?>">
                         </div>
                         <div class="mb-3">
                             <label for="vreme" class="form-label">Vreme <span class="text-danger">*</span></label>
                             <input type="time" class="form-control" name="vreme">
                         </div>
-
-
-
-
                         <button type="submit" class="btn btn-primary">Sačuvaj</button>
-                        <?php
-                        // session_start();
-                        $msg = isset($_SESSION['msg']) ? $_SESSION['msg'] : '';
-                        unset($_SESSION['msg']);
-                        ?>
-                        <p class="text-danger"><?= $msg ?></p>
+                        <p class="text-danger"><?= isset($_SESSION['msg']) ? $_SESSION['msg'] : '' ?></p>
                     </form>
                 </div>
             </div>
-
         </div>
         <script src="./js/jquery-3.6.0.js"></script>
         <script src="./js/jquery.validate.min.js"></script>
@@ -123,12 +108,13 @@ if (time() - $vremeActivneSesije < 10 * 60) {
 <?php
     }
 } else {
-    // REDIREKCIJA NA POCETNU STRANU DA SE OBRISE I UNISTI SESIJA AKO JE ISTEKLA
+    // Session timeout handling
     session_unset();
     session_destroy();
-    header("Location: login.php");
+    header("Location: ./login.php");
 }
 
-$_SESSION['last_active1'] = time();    // update zadnje aktivnosti na sesiji
+// Update last active session time
+$_SESSION['last_active1'] = time();
 require_once './partials/footer.php';
 ?>
