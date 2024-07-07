@@ -50,21 +50,21 @@ require_once '../model/Korisnik.php';
 
                     <!-- Images with captions -->
                     <div class="carousel-inner">
-                        <div class="carousel-item active" data-bs-interval="2000">
+                        <div class="carousel-item active" data-bs-interval="5000">
                             <img src="images/carousel1.jpg" class="d-block w-100" style="height: 100vh; object-fit: cover;" alt="...">
                             <div class="carousel-caption d-none d-md-block" style="top: 20%; transform: translateY(-20%);">
                                 <h1 class="text-white" style="font-size: 2.5rem;">"I never look back, I look forward." - Steffi Graf</h1>
                                 <p class="text-white" style="font-size: 1.5rem;">Inspiration to always move ahead.</p>
                             </div>
                         </div>
-                        <div class="carousel-item" data-bs-interval="2000">
+                        <div class="carousel-item" data-bs-interval="5000">
                             <img src="images/carousel2.jpg" class="d-block w-100" style="height: 100vh; object-fit: cover;" alt="...">
                             <div class="carousel-caption d-none d-md-block" style="top: 20%; transform: translateY(-20%);">
                                 <h1 class="text-white" style="font-size: 2.5rem;">"Success is a journey, not a destination." - Arthur Ashe</h1>
                                 <p class="text-white" style="font-size: 1.5rem;">Focus on the process.</p>
                             </div>
                         </div>
-                        <div class="carousel-item" data-bs-interval="2000">
+                        <div class="carousel-item" data-bs-interval="5000">
                             <img src="images/carousel3.jpg" class="d-block w-100" style="height: 100vh; object-fit: cover;" alt="...">
                             <div class="carousel-caption d-none d-md-block" style="top: 20%; transform: translateY(-20%);">
                                 <h1 class="text-white" style="font-size: 2.5rem;">"You have to believe in the long term plan you have but you need the short term goals to motivate and inspire you." - Roger Federer</h1>
