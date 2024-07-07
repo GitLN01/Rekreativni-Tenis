@@ -17,8 +17,8 @@ if (time() - $sessija <  10 * 60) {
 
 ?>
 
-        <div class="container" style="background-color:#ffffff;">
-            <a class="btn btn-secondary mt-5 mx-2 float-right" href="formaInsertKlubovi.php">Dodaj sportski klub</a>
+<div class="container my-5" style="background-color: #ffffff; padding: 2rem; border-radius: 10px;">
+
             <div class="row">
                 <?php
 
@@ -83,16 +83,18 @@ if (time() - $sessija <  10 * 60) {
                     </div>
 
                 </div>
-
+                <div class="d-flex justify-content-center mt-4">
+                    <a class="btn btn-primary btn-lg" href="formaInsertKlubovi.php">Dodaj sportski klub</a>
+                </div>
             </div>
             <script>
                 $(document).ready(function() {
                     $('#dtBasicExample').DataTable();
                     $('.dataTables_length').addClass('bs-select');
-                    $('.pagination').hide();
-                    $('#dtBasicExample_info').hide();
-                    $('#dtBasicExample_paginate').hide();
-                    $('#dtBasicExample_length').hide();
+                    //$('.pagination').hide();
+                    //$('#dtBasicExample_info').hide();
+                    //$('#dtBasicExample_paginate').hide();
+                    //$('#dtBasicExample_length').hide();
 
                 });
             </script>
