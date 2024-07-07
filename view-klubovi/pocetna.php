@@ -3,7 +3,7 @@ require_once './partials/navigacija.php';
 require_once '../model/Korisnik.php';
 session_start();
 $vremeActivneSesije = isset($_SESSION['last_active1']) ? $_SESSION['last_active1'] : 0;
-if (time() - $vremeActivneSesije <  10 * 60) {
+if (time() - $vremeActivneSesije < 10 * 60) {
     if (!isset($_SESSION['loginK'])) {
         header("Location:./login.php");
     } else {
@@ -11,13 +11,12 @@ if (time() - $vremeActivneSesije <  10 * 60) {
 ?>
 
         <div class="container" style="background-image: url('./images/image-tenis.jpg');">
-            <div class="row" style="height: 68px; background-color:#6386a3">
+            <div class="row" style="height: 68px; background-color:#09189c">
 
                 <div class="row">
                     <div class="col-md-6">
                         <?php
-
-                        $sati =  date('H');
+                        $sati = date('H');
                         $pozdrav = '';
                         if ($sati >= 4 && $sati <= 9) {
                             $pozdrav = 'Dobro jutro';
@@ -28,27 +27,22 @@ if (time() - $vremeActivneSesije <  10 * 60) {
                         } else {
                             $pozdrav = 'Dobro jutro';
                         }
-                        $pozdrav = $pozdrav . ', ' . $korisnik['ime'];
+                        $pozdrav = $pozdrav . ' i dobrodošli!';
                         ?>
                         <h3 class="text-white py-3"><?= $pozdrav ?></h3>
-
                     </div>
                     <div class="col-md-6">
-                        <div class="dropdown py-3 position-fixed right-0 end-0 p-3 ">
+                        <div class="dropdown py-3 position-fixed right-0 end-0 p-3">
                             <a href="#" class="d-flex align-items-center text-white text-decoration-none dropdown-toggle" id="dropdownUser1" data-bs-toggle="dropdown" aria-expanded="false">
-
                                 <?php
-                                if (isset($korisnik['profilna_slika']))
-                                    echo '<img width="32" height="32" class="rounded-circle me-2" src="data:image/png/image/jpeg;base64,' . base64_encode($korisnik['profilna_slika']) . '" />';
+                                if ($korisnik->getProfilnaSlika())
+                                    echo '<img width="32" height="32" class="rounded-circle me-2" src="data:image/png;base64,' . base64_encode($korisnik->getProfilnaSlika()) . '" />';
                                 else
                                     echo '<img src="./images/user128.png" width="32" class="rounded-circle me-2" height="32" alt="" srcset="">';
                                 ?>
-
-                                <strong><?php echo $korisnik['ime'] . ' ' . $korisnik['prezime'] ?></strong>
+                                <strong><?php echo $korisnik->getIme() . ' ' . $korisnik->getPrezime() ?></strong>
                             </a>
                             <ul class="dropdown-menu dropdown-menu-dark text-small shadow" aria-labelledby="dropdownUser1">
-
-
                                 <li><a class="dropdown-item" href="profil.php">Profile</a></li>
                                 <li>
                                     <hr class="dropdown-divider">
@@ -58,28 +52,19 @@ if (time() - $vremeActivneSesije <  10 * 60) {
                         </div>
                     </div>
                 </div>
-
-
             </div>
             <div class="row">
-
             </div>
-
         </div>
-
-
 <?php
     }
 } else {
-    // REDIREKCIJA NA POCETNU STRANU DA SE OBRISE I UNISTI SESIJA AKO JE ISTEKLA
     session_unset();
     session_destroy();
     header("Location: login.php");
 }
 
-$_SESSION['last_active1'] = time();    // update zadnje aktivnosti na sesiji
-
+$_SESSION['last_active1'] = time();  
 
 require_once './partials/footer.php';
-
 ?>

@@ -21,10 +21,10 @@
   <main>
     <h1 class="visually-hidden">Sportski klubovi</h1>
 
-    <div class="d-flex flex-column flex-shrink-0 p-3 text-white " style="width: 280px; background-color:#6386a3">
+    <div class="d-flex flex-column flex-shrink-0 p-3 text-white " style="width: 280px; background-color:#09189c">
       <a href="pocetna.php" class=" text-center d-flex align-items-center mb-3 mb-md-0 me-md-auto text-white text-decoration-none">
 
-        <span class="fs-4 text-center">TENISKI KLUBOVI</span>
+        <span class="fs-4 text-center">&nbsp;TENISKI KLUBOVI</span>
       </a>
       <hr>
       <ul class="nav nav-pills flex-column mb-auto">
