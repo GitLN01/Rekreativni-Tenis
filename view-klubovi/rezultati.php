@@ -19,8 +19,8 @@ if (time() - $vremeActivneSesije < 10 * 60) {
         $korisnikDAO = new KorisnikDAO();
 ?>
         <div class="container-fluid" style="background-image: url('images/carousel1.jpg'); background-size: cover; background-repeat: no-repeat; overflow-y: scroll; height: 100vh;">
-            <h1 class="h1 mt-3 text-white">Prikaz svih rezultata:</h1>
-            <div class="container mt-3 p-3" style="background-color: rgba(255, 255, 255, 0.8); border-radius: 10px;">
+            <h1 class="h1 mt-3 m-2 text-white">Prikaz svih rezultata:</h1>
+            <div class="container m-3 p-3" style="background-color: rgba(255, 255, 255, 0.8); border-radius: 10px; width:90%;">
                 <?php
                 $msg = isset($_SESSION['msg']) ? $_SESSION['msg'] : '';
                 if (!empty($msg)) :
