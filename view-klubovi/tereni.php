@@ -37,7 +37,7 @@ if (time() - $vremeActivneSesije < 10 * 60) {
                     }
                     unset($_SESSION['msg']);
                     ?>
-                    <div class="container" style="width: 90%;">
+                    <div class="container" style="width: 100%;">
                         <table class="table table-bordered text-center table-striped table-sm mt-3" cellspacing="0"
                             style="margin-left:auto;margin-right:auto" id="dtBasicExample">
                             <thead class="table-dark sticky-top bg-white">
