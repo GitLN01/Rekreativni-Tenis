@@ -17,8 +17,7 @@ if (time() - $_SESSION['last_active'] < 10 * 60) {
         $korisnik = isset($_SESSION['loginKorisnik']) ? unserialize($_SESSION['loginKorisnik']) : new Korisnik();
         ?>
 
-        <div class="container-fluid"
-            style="background-repeat: no-repeat; background-size: cover; background-image: url('images/carousel1.jpg'); overflow-y: scroll; height: 100vh;">
+        <div class="container-fluid" style="background-repeat: no-repeat; background-size: cover; background-image: url('images/carousel1.jpg'); overflow-y: scroll; height: 100vh;">
             <div class="row">
                 <?php
                 $msg = isset($_SESSION['msg']) ? $_SESSION['msg'] : '';

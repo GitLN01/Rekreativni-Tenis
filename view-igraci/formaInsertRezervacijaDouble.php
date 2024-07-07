@@ -21,8 +21,8 @@ if (time() - $_SESSION['last_active'] <  10 * 60) {
         $korisnik = isset($_SESSION['loginKorisnik']) ? unserialize($_SESSION['loginKorisnik']) : new Korisnik();
         //  print_r($_SESSION['loginKorisnik']);
 ?>
-        <div class="container">
-            <?php
+        <div class="container-fluid" style="background-repeat: no-repeat; background-size: cover; background-image: url('images/carousel1.jpg'); overflow-y: scroll; height: 100vh;">
+        <?php
 
             $msg = isset($_SESSION['msg']) ? $_SESSION['msg'] : '';
             if (!empty($msg)) {
@@ -41,7 +41,7 @@ if (time() - $_SESSION['last_active'] <  10 * 60) {
             ?>
             <div class="row mt-4" style="width: 45%;margin-left:auto;margin-right:auto">
                 <div class="col-md-12">
-                    <form id="formRezervacija" action="../controller-igraci/Rezervacija.php?action=insertDouble" method="post" class="border rounded p-5">
+                    <form style="background-color:rgba(255,255,255,0.8);" id="formRezervacija" action="../controller-igraci/Rezervacija.php?action=insertDouble" method="post" class="border rounded p-5">
                         <div class="mb-3">
 
                             <div class="row">
@@ -121,7 +121,7 @@ if (time() - $_SESSION['last_active'] <  10 * 60) {
 
 
 
-                        <button type="submit" class="btn btn-primary">Sačuvaj</button>
+                        <button type="submit" class="btn btn-success btn-lg">Sačuvaj</button>
                         <?php
                         $msg = isset($_SESSION['msg']) ? $_SESSION['msg'] : '';
                         unset($_SESSION['msg']);
