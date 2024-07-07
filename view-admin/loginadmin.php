@@ -30,7 +30,7 @@
         <div class="container py-5 h-100">
             <div class="row d-flex justify-content-center align-items-center h-100">
                 <div class="col-12 col-md-8 col-lg-6 col-xl-5">
-                    <div class="card shadow-2-strong" style="border-radius: 1rem; background-color: rgba(255, 255, 255, 0.9);">
+                    <div class="card shadow-2-strong" style="border-radius: 1rem; background-color: rgba(255, 255, 255, 0.7);">
                         <div class="card-body p-5 text-center">
 
                             <h3 class="mb-5">PRIJAVITE SE</h3>
