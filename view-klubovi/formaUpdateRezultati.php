@@ -22,10 +22,9 @@ if (time() - $vremeActivneSesije < 10 * 60) {
         header("Location:./login.php");
     } else {
         ?>
-
-
-<div class="container" style="background-image: url('images/carousel1.jpg'); background-repeat: no-repeat; background-size: cover; ">
-<div class="row mt-4" style="width: 45%;margin-left:auto;margin-right:auto">
+        <div class="container"
+            style="background-image: url('images/carousel1.jpg'); background-repeat: no-repeat; background-size: cover; ">
+            <div class="row mt-4" style="width: 45%;margin-left:auto;margin-right:auto">
                 <div class="col-md-12">
                     <form id="formRezultat" action="../controller-klubovi/controllerRezultat.php?action=update" method="post"
                         class="border rounded p-5" style="background-color: rgba(255, 255, 255, 0.8);">
@@ -50,9 +49,7 @@ if (time() - $vremeActivneSesije < 10 * 60) {
                                 }
                             }
                             ?>>
-                        </div>
-
-                        <div class="mb-3">
+                        </div>                        <div class="mb-3">
                             <label for="id_rezervacije" class="form-label"> Rezervacija <span
                                     class="text-danger">*</span></label>
                             <select name="id_rezervacije" class="form-control">
@@ -68,20 +65,15 @@ if (time() - $vremeActivneSesije < 10 * 60) {
                                     </option>
                                 <?php endforeach ?>
                             </select>
-
                         </div>
-
                         <div class="mb-3">
                             <label for="status_meca" class="form-label"> Status meča <span class="text-danger">*</span></label>
                             <select name="status_meca" class="form-control">
                                 <option value="odigran">Odigran</option>
                                 <option value="otkazan">Otkazan</option>
                             </select>
-
                         </div>
-
                         <input type="hidden" name="id" value="<?= isset($rezultat['id']) ? $rezultat['id'] : '' ?>">
-
                         <button type="submit" class="btn btn-primary">Sačuvaj</button>
                         <?php
                         // session_start();
@@ -92,7 +84,6 @@ if (time() - $vremeActivneSesije < 10 * 60) {
                     </form>
                 </div>
             </div>
-
         </div>
         <script src="./js/jquery-3.6.0.js"></script>
         <script src="./js/jquery.validate.min.js"></script>
@@ -101,12 +92,11 @@ if (time() - $vremeActivneSesije < 10 * 60) {
         <?php
     }
 } else {
-    // REDIREKCIJA NA POCETNU STRANU DA SE OBRISE I UNISTI SESIJA AKO JE ISTEKLA
     session_unset();
     session_destroy();
     header("Location: login.php");
 }
 
-$_SESSION['last_active1'] = time();    // update zadnje aktivnosti na sesiji
+$_SESSION['last_active1'] = time();   
 require_once './partials/footer.php';
 ?>
