@@ -7,7 +7,6 @@ require_once '../DAO/KorisnikDAO.php';
 require_once '../model/Teren.php';
 require_once '../DAO/MecDAO.php';
 
-// Fetching data from DAOs
 $tereniDAO = new TerenDAO();
 $tereni = $tereniDAO->getAllTereni();
 
@@ -20,7 +19,6 @@ $mecevi = $mecDAO->getAllMecevi();
 session_start();
 $vremeActivneSesije = isset($_SESSION['last_active1']) ? $_SESSION['last_active1'] : 0;
 
-// Checking session timeout
 if (time() - $vremeActivneSesije < 10 * 60) {
     if (!isset($_SESSION['loginK'])) {
         header("Location: ./login.php");
@@ -28,7 +26,6 @@ if (time() - $vremeActivneSesije < 10 * 60) {
 ?>
         <div class="container-fluid" style="background-repeat: no-repeat; background-size: cover; background-image: url('images/carousel1.jpg'); overflow-y: scroll; height: 100vh;">
             <?php
-            // Display toast message if set
             $msg = isset($_SESSION['msg']) ? $_SESSION['msg'] : '';
             if (!empty($msg)) {
             ?>
@@ -108,13 +105,11 @@ if (time() - $vremeActivneSesije < 10 * 60) {
 <?php
     }
 } else {
-    // Session timeout handling
     session_unset();
     session_destroy();
     header("Location: ./login.php");
 }
 
-// Update last active session time
 $_SESSION['last_active1'] = time();
 require_once './partials/footer.php';
 ?>
