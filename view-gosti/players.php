@@ -27,7 +27,7 @@ $igraci = $korisnikDAO->getAllIgraci();
         <?php }
         ?>
         <h2 class="m-4 text-white">Prikaz svih igrača</h2>
-        <div class="container mt-3 mb-5 p-3" style="background-color: rgba(255, 255, 255, 0.8); border-radius: 10px;">
+        <div class="container mt-3 mb-5 p-3" style="background-color: rgba(255, 255, 255, 0.8); border-radius: 10px; width:95%;">
             
 
             <table id="igraciTable" class="table table-bordered table-striped table-hover text-center">

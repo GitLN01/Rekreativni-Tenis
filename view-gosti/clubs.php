@@ -27,7 +27,7 @@ $klubovi = $klubDAO->getAllSportskiKlubovi();
         ?>
         <h2 class="m-4 text-white">Prikaz svih sportskih klubova</h2>
 
-        <div class="container mt-3 mb-5 p-3" style="background-color: rgba(255, 255, 255, 0.8); border-radius: 10px;">
+        <div class="container-fluid mt-3 mb-5 p-3" style="background-color: rgba(255, 255, 255, 0.8); border-radius: 10px; width:95%;">
             <table id="kluboviTable" class="table table-bordered table-striped table-hover text-center">
                 <thead class="table-dark">
                     <tr>

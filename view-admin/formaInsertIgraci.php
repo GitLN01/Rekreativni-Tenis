@@ -11,11 +11,9 @@ if (time() - $sessija <  10 * 60) {
     } else {
 ?>
         <?php
-
         $igrac = isset($_SESSION['igrac']) ? unserialize($_SESSION['igrac']) : new Korisnik();
         unset($_SESSION['igrac']);
         ?>
-
 
         <div class="container">
             <div class="row mt-4" style="width: 45%;margin-left:auto;margin-right:auto">
@@ -34,7 +32,6 @@ if (time() - $sessija <  10 * 60) {
                             </div>
 
                         </div>
-
 
                         <div class="mb-3">
                             <div class="row">
