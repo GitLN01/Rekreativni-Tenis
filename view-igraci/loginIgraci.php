@@ -24,36 +24,31 @@
     $msg = isset($_SESSION['msg']) ? $_SESSION['msg'] : '';
     session_destroy();
     ?>
-    <div class="container  py-5 ">
+    <div class="container py-5 ">
         <div class="row d-flex justify-content-center align-items-center h-100">
             <div class="col-12 col-md-6 ">
                 <div class="card shadow-2" style="background-color: rgba(255, 255, 255, 0.7);">
                     <div class="card-body p-5">
                         <h2 class="mb-2 text-center" style="color:black">PRIJAVA </h2>
                         <br>
-                        <form id="formaLog" action="../controller-igraci/LoginIgraci.php?action=loginIgraci"
-                            method="post">
+                        <form id="formaLog" action="../controller-igraci/LoginIgraci.php?action=loginIgraci" method="post">
                             <div class="forma-element mb-2">
-                                <h4> <label class="forma-label" for="typeEmailX-2" style="color:black">EMAIL:<span>
-                                            *</span></label></h4>
-                                <input type="text" name="email" id="korisnickoime" required
-                                    class="form-control form-control-md"
-                                    style="background-color: rgba(255, 255, 255, 0.5); border:none" />
+                                <h4> <label class="forma-label" for="typeEmailX-2" style="color:black">EMAIL:<span> *</span></label></h4>
+                                <input type="text" name="email" id="korisnickoime" required class="form-control form-control-md" style="background-color: rgba(255, 255, 255, 0.5); border:none" />
                             </div>
 
                             <div class="forma-element mb-2">
-                                <h4> <label class="forma-label" for="" style="color:black">LOZINKA:<span>
-                                            *</span></label></h4>
-                                <input type="password" name="lozinka" id="lozinka" class="form-control form-control-md"
-                                    style="background-color: rgba(255, 255, 255, 0.5); border:none" />
+                                <h4> <label class="forma-label" for="" style="color:black">LOZINKA:<span> *</span></label></h4>
+                                <input type="password" name="lozinka" id="lozinka" class="form-control form-control-md" style="background-color: rgba(255, 255, 255, 0.5); border:none" />
                             </div>
-                            <input class="btn btn-warning btn-block w-50" type="submit" value="Prijava" name="Prijava"
-                                style="background-color: rgba(0, 0, 255, 0.5); border:none">
+                            <div class="forma-element mb-2 text-center">
+                            <input class="btn btn-warning btn-block w-50 text-center" type="submit" value="Prijava" name="Prijava" style="background-color: rgba(0, 0, 255, 0.5); border:none">
+                            </div>
                             <br>
                             <p id="greska"> <?= $msg ?></p>
 
                             <div style=" text-align:right;font-size:15px;color:black;font-weight:500; padding-right:20px">
-                                <p id="notaccount">Nemate nalog? <ahref="../view-igraci/RegistracijaIgraci.php">Registrujte se</a> </p>
+                                <p id="notaccount">Nemate nalog? <a href="../view-igraci/RegistracijaIgraci.php">Registrujte se</a> </p>
                             </div>
 
                         </form>
@@ -69,9 +64,7 @@
 
     <script src="js/validacija-login.js"></script>
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2"
-        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
 </body>
 
 </html>
