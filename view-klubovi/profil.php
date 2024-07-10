@@ -2,12 +2,24 @@
 require_once './partials/navigacija.php';
 require_once '../model/Korisnik.php';
 session_start();
+
+// Check session timeout
 $vremeActivneSesije = isset($_SESSION['last_active1']) ? $_SESSION['last_active1'] : 0;
-if (time() - $vremeActivneSesije <  10 * 60) {
+if (time() - $vremeActivneSesije < 10 * 60) {
+    // Check if user is logged in
     if (!isset($_SESSION['loginK'])) {
-        header("Location:./login.php");
+        header("Location: ./login.php");
+        exit();
     } else {
-        $korisnik = isset($_SESSION['loginK']) ? unserialize($_SESSION['loginK']) : new Korisnik();
+        // Deserialize user object from session
+        $korisnik = isset($_SESSION['loginK']) ? unserialize($_SESSION['loginK']) : null;
+
+        // Verify if $korisnik is an instance of Korisnik
+        if (!($korisnik instanceof Korisnik)) {
+            // Handle the error appropriately
+            echo "Error: Invalid user data.";
+            exit();
+        }
 ?>
         <div class="container" style="background-color: #eee;">
             <section>
@@ -18,6 +30,7 @@ if (time() - $vremeActivneSesije <  10 * 60) {
                                 <div class="card mb-4">
                                     <div class="card-body text-center">
                                         <?php
+                                        // Check if user has a profile picture
                                         if (empty($korisnik->getProfilnaSlika())) {
                                         ?>
                                             <img src="./images/user128.png" alt="avatar" class="rounded-circle img-fluid" style="width: 150px;">
@@ -30,7 +43,7 @@ if (time() - $vremeActivneSesije <  10 * 60) {
                                             <?php echo $korisnik->getIme() . ' ' . $korisnik->getPrezime() ?>
                                         </h5>
                                         <p class="text-muted mb-1">Radnik u teniskom klubu</p>
-                                        <input type="file" class="btn  form-control btn-sm" name="slika" />
+                                        <input type="file" class="btn form-control btn-sm" name="slika" />
                                         <p class="text-muted mb-4"></p>
                                     </div>
                                 </div>
@@ -82,11 +95,14 @@ if (time() - $vremeActivneSesije <  10 * 60) {
 <?php
     }
 } else {
+    // Destroy session if inactive
     session_unset();
     session_destroy();
     header("Location: login.php");
+    exit();
 }
 
+// Update session activity time
 $_SESSION['last_active1'] = time();
 require_once './partials/footer.php';
 ?>

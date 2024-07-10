@@ -32,19 +32,30 @@ if (time() - $vremeActivneSesije < 10 * 60) {
                         <h3 class="text-white py-3"><?= $pozdrav ?></h3>
                     </div>
                     <div class="col-md-6">
-                        <div class="dropdown py-3 position-fixed right-0 end-0 p-3">
-                            <a href="#" class="d-flex align-items-center text-white text-decoration-none dropdown-toggle" id="dropdownUser1" data-bs-toggle="dropdown" aria-expanded="false">
-                                
+                        <div class="dropdown py-3 position-fixed right-0 end-0 p-3" style="border: 2px solid white">
+                            <a href="#" class="d-flex align-items-center text-white text-decoration-none dropdown-toggle"
+                                id="dropdownUser1" data-bs-toggle="dropdown" aria-expanded="false">
+                                <?php if (isset($korisnik['profilna_slika'])): ?>
+                                    <img width="32" height="32" class="rounded-circle me-2"
+                                        src="data:image/png/image/jpeg;base64,<?= base64_encode($korisnik['profilna_slika']) ?>"
+                                        alt="Profilna slika">
+                                <?php else: ?>
+                                    <img src="./images/user128.png" width="32" class="rounded-circle me-2" height="32"
+                                        alt="Profilna slika">
+                                <?php endif; ?>
+                                <strong><?= $korisnik['ime'] . ' ' . $korisnik['prezime'] ?></strong>
                             </a>
                             <ul class="dropdown-menu dropdown-menu-dark text-small shadow" aria-labelledby="dropdownUser1">
-                                <li><a class="dropdown-item" href="profil.php">Profile</a></li>
+                                <li><a class="dropdown-item" href="profil.php">Profil</a></li>
                                 <li>
                                     <hr class="dropdown-divider">
                                 </li>
-                                <li><a class="dropdown-item" href="../controller-klubovi/Login.php?action=logout">Logout</a></li>
+                                <li><a class="dropdown-item"
+                                href="../controller-klubovi/Login.php?action=logout">Odjava</a></li>
                             </ul>
                         </div>
                     </div>
+
                 </div>
             </div>
             <div class="row">
