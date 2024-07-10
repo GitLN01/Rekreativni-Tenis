@@ -21,7 +21,7 @@
 
     <main>
 
-        <div class="d-flex flex-column flex-shrink-0 p-3  " style="width: 250px;background-color:#6386a3;">
+        <div class="d-flex flex-column flex-shrink-0 p-3  " style="width: 250px;background-color:#09731e;">
             <a href="pocetna.php" class=" text-center d-flex align-items-center mb-3 mb-md-0 me-md-auto text-white text-decoration-none">
                 <span class="fs-4 text-center" style="padding-left: 30px;">Admin Panel</span>
             </a>
