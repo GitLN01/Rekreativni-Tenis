@@ -76,8 +76,8 @@
         </li>
         
         <li>
-          <a href="./OProjektu.php" class="nav-link text-white">
-            O projektu
+          <a href="./OAutorima.php" class="nav-link text-white">
+            O autorima
           </a>
         </li>
       </ul>
