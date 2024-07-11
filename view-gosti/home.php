@@ -3,7 +3,7 @@ require_once './partials/navigacija.php';
 require_once '../model/Korisnik.php';
 ?>
 
-<div class="container-fluid p-0">
+<div class="container-fluid p-0" style="overflow:hidden;">
     <div class="row" style="height: 68px; background-color:#09731e">
         <div class="row">
             <div class="col-md-8">
@@ -19,7 +19,7 @@ require_once '../model/Korisnik.php';
                 } else {
                     $pozdrav = 'Dobro jutro';
                 }
-                $pozdrav = $pozdrav . ' i dobrodošli!';
+                $pozdrav = '&nbsp;&nbsp;'. $pozdrav . ' i dobrodošli!';
                 ?>
                 <h4 class="text-white py-3"><?= $pozdrav ?></h4>
             </div>

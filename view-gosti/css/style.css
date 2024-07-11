@@ -1,3 +1,9 @@
+html, body {
+  height: 100%;
+  margin: 0;
+  overflow: hidden; /* Prevent scrolling on the y-axis */
+}
+
 main {
   display: flex;
   flex-wrap: nowrap;
@@ -5,6 +11,7 @@ main {
   height: -webkit-fill-available;
   max-height: 100vh;
   overflow-x: auto;
+  overflow-x: hidden;
 }
 
 .b-example-divider {
@@ -48,7 +55,6 @@ main {
 
 .btn-toggle:hover,
 .btn-toggle:focus {
-
   color: rgba(0, 0, 0, .85);
   background-color: #d2f4ea;
 }
@@ -70,7 +76,6 @@ main {
 }
 
 .btn-toggle-nav a {
-
   display: inline-flex;
   padding: .1875rem .5rem;
   margin-top: .125rem;
@@ -101,4 +106,12 @@ main {
 
 .nav-link {
   padding: 17px;
+}
+
+.d-flex.flex-column.flex-shrink-0 {
+  height: 100vh;
+}
+
+.carousel-item {
+  height: 100vh;
 }
