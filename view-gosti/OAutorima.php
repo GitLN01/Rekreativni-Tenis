@@ -26,7 +26,7 @@ require_once './partials/navigacija.php';
                             </div>
                         </div>
                         <div class="text-center">
-                        <a href="./docs/documentacija.pdf" class="btn btn-sm btn-success mt-2">Prikaži Dokumentaciju</a>
+                        <a target="_blank" href="https://drive.google.com/file/d/1ZH4RcJ4HaPfbraHlIUlm7-VBIuB484OR/view?usp=drive_link" class="btn btn-sm btn-success mt-2">Prikaži Dokumentaciju</a>
                     </div>
                     </div>
                 </div>
@@ -48,7 +48,7 @@ require_once './partials/navigacija.php';
                             </div>
                         </div>
                         <div class="text-center">
-                        <a href="./docs/documentacija.pdf" class="btn btn-sm btn-success mt-2">Prikaži Dokumentaciju</a>
+                        <a target="_blank" href="https://drive.google.com/file/d/1zO4iElFR1dSE3vVsU0ctpw5i7-7TAuO_/view?usp=sharing" class="btn btn-sm btn-success mt-2">Prikaži Dokumentaciju</a>
                     </div>
                     </div>
                 </div>
@@ -71,7 +71,7 @@ require_once './partials/navigacija.php';
                             </div>
                         </div>
                         <div class="text-center">
-                        <a href="./docs/documentacija.pdf" class="btn btn-sm btn-success mt-2">Prikaži Dokumentaciju</a>
+                        <a target="_blank" href="https://drive.google.com/file/d/1oSKtnj-Ce-x5TUVolRzRxS9z2eQG43ZJ/view?usp=sharing" class="btn btn-sm btn-success mt-2">Prikaži Dokumentaciju</a>
                     </div>
                     </div>
                 </div>
@@ -102,7 +102,7 @@ require_once './partials/navigacija.php';
                         </div>
                     </div>
                     <div class="text-center">
-                        <a href="./docs/documentacija.pdf" class="btn btn-sm btn-success mt-2">Prikaži Dokumentaciju</a>
+                        <a target="_blank" href="https://drive.google.com/file/d/1ZH4RcJ4HaPfbraHlIUlm7-VBIuB484OR/view?usp=drive_link" class="btn btn-sm btn-success mt-2">Prikaži Dokumentaciju</a>
                     </div>
                 </div>
             </div>
